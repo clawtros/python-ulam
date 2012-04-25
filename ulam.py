@@ -154,20 +154,7 @@ def primegen(until=100000):
             raise StopIteration()
 
 if __name__ == "__main__":
-
-    s = 1
-    pg = list(primegen(50000))
-    t = 1.0
-    while s < 100:
-        ucs = [UlamCoord(s,s), UlamCoord(-s,s), UlamCoord(-s,-s)]
-        t = (t + sum([1 for c in ucs if c.get_n() in pg])/3)/2
-        print t, [c.get_n() for c in ucs], [1 for c in ucs if c.get_n() in pg]
-        if t < 0.1: 
-            print s
-            break
-        s += 1
-    
-    
+    size = 5 
     print "\n".join(
         ["\t".join(
                 ["%s (%d,%d)" % (str(UlamCoord(x,y)), x, y) for x in range(-size,size+1)]) 
