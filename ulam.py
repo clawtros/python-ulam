@@ -134,44 +134,6 @@ class UlamAnalyzer:
                           co.y*GRAN+GRAN+OFF,
                           fill="black")
 
-import random
-def flt(n):
-    a = random.randint(2, n-1)
-    return math.pow(a, n-1) % n == 1
-
-
-def mbrot(xsize, ysize, trials=100000):
-    result = []
-    for x in range(xsize):
-        row = []
-        for y in range(ysize):
-            dotcolor = 0
-            z = complex(y,x)
-            o = complex(0,0)
-            for n in range(trials):
-                if abs(o) <= 2:
-                    o = o*o + z
-                else:
-                    dotcolor = trials
-                    break
-            row.append(dotcolor)
-        result.append(row)
-    return result
-
-# def rendermbrot(x,y):
-#     from Tkinter import *
-#     root = Tk()
-#     c = Canvas(root, width=x, height=y, bg="white")
-#     c.pack()
-#     mb = mbrot(x,y)
-#     for x,row in enumerate(mb):
-#         for y,shade in enumerate(mb):
-#             c.create_rectangle(x,
-#                                y,
-#                                1,
-#                                1,
-#                                fill="black")
-            
 from math import sqrt
 
 def avg(l):
@@ -192,8 +154,6 @@ def primegen(until=100000):
             raise StopIteration()
 
 if __name__ == "__main__":
-    mb = mbrot(10,10)
-    size = 2
 
     s = 1
     pg = list(primegen(50000))
